@@ -1,0 +1,48 @@
+import tkinter as tk
+from tkinter import ttk
+
+def hitung():
+    # Ambil nilai dari input
+    diagonal1 = float(entry_diagonal1.get())
+    diagonal2 = float(entry_diagonal2.get())
+    sisi = float(entry_sisi.get())
+
+    # Hitung luas dan keliling belah ketupat
+    luas = 0.5 * diagonal1 * diagonal2
+    keliling = 4 * sisi
+
+    # Tampilkan hasil pada label
+    hasil_label.config(text=f"Luas: {luas:.2f}, Keliling: {keliling:.2f}")
+
+# Membuat GUI
+root = tk.Tk()
+root.title("Kalkulator Belah Ketupat")
+
+frame = ttk.Frame(root)
+frame.grid(row=0, column=0, padx=20, pady=20)
+
+# Input diagonal dan panjang sisi
+diagonal1_label = ttk.Label(frame, text="Diagonal 1:")
+diagonal1_label.grid(row=0, column=0, sticky="w")
+entry_diagonal1 = ttk.Entry(frame)
+entry_diagonal1.grid(row=0, column=1, padx=10, pady=10)
+
+diagonal2_label = ttk.Label(frame, text="Diagonal 2:")
+diagonal2_label.grid(row=1, column=0, sticky="w")
+entry_diagonal2 = ttk.Entry(frame)
+entry_diagonal2.grid(row=1, column=1, padx=10, pady=10)
+
+sisi_label = ttk.Label(frame, text="Panjang Sisi:")
+sisi_label.grid(row=2, column=0, sticky="w")
+entry_sisi = ttk.Entry(frame)
+entry_sisi.grid(row=2, column=1, padx=10, pady=10)
+
+# Tombol hitung
+hitung_button = ttk.Button(frame, text="Hitung", command=hitung)
+hitung_button.grid(row=3, column=0, columnspan=2, pady=10)
+
+# Label hasil
+hasil_label = ttk.Label(frame, text="", font=("Helvetica", 12))
+hasil_label.grid(row=4, column=0, columnspan=2, pady=10)
+
+root.mainloop()
